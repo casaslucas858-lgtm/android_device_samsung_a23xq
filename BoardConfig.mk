@@ -1,0 +1,90 @@
+# Platform
+TARGET_BOARD_PLATFORM := holi
+TARGET_BOOTLOADER_BOARD_NAME := holi
+
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := kryo385
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := kryo385
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+
+# Kernel
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom androidboot.memcg=1
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=4e00000.dwc3
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_IMAGE_NAME := Image
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_SOURCE := kernel/samsung/sm6375
+TARGET_KERNEL_CONFIG := a23xq_defconfig
+
+# Kernel - Prebuilt (temporal, hasta tener kernel source)
+TARGET_PREBUILT_KERNEL := device/samsung/a23xq/prebuilt/Image
+BOARD_PREBUILT_DTBOIMAGE := device/samsung/a23xq/prebuilt/dtbo.img
+
+# Partitions
+BOARD_FLASH_BLOCK_SIZE := 262144
+BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 100663296
+BOARD_SUPER_PARTITION_SIZE := 9126805504
+BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product odm
+
+# Partitions - File systems
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_COPY_OUT_VENDOR := vendor
+TARGET_COPY_OUT_PRODUCT := product
+
+# Dynamic Partitions
+BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+
+# Recovery
+TARGET_RECOVERY_FSTAB := device/samsung/a23xq/rootdir/etc/fstab.qcom
+BOARD_INCLUDE_RECOVERY_DTBO := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+
+# SELinux
+include device/qcom/sepolicy_vndr/SEPolicy.mk
+BOARD_VENDOR_SEPOLICY_DIRS += device/samsung/a23xq/sepolicy/vendor
+
+# Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+
+# VNDK
+BOARD_VNDK_VERSION := current
+
+# WiFi
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WIFI_DRIVER_FW_PATH_STA := "sta"
+WIFI_DRIVER_FW_PATH_AP := "ap"
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# Properties
+TARGET_SYSTEM_PROP += device/samsung/a23xq/system.prop
+TARGET_VENDOR_PROP += device/samsung/a23xq/vendor.prop
+
+# Inherit from the proprietary version
+include vendor/samsung/a23xq/BoardConfigVendor.mk
