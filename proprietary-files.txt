@@ -1,0 +1,64 @@
+# Audio
+vendor/lib/libaudioroute.so
+vendor/lib/libtinyalsa.so
+vendor/lib64/libaudioroute.so
+vendor/lib64/libtinyalsa.so
+
+# Bluetooth
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
+vendor/lib64/libbluetooth_qti.so
+vendor/lib64/libbt-vendor.so
+
+# Camera
+vendor/lib/libcamera_client.so
+vendor/lib/libcamera_metadata.so
+vendor/lib64/libcamera_client.so
+vendor/lib64/libcamera_metadata.so
+vendor/lib64/hw/camera.holi.so
+
+# DRM
+vendor/bin/hw/android.hardware.drm@1.4-service.clearkey
+vendor/lib64/libdrm.so
+
+# GPS
+vendor/bin/hw/android.hardware.gnss@2.1-service-qti
+vendor/lib64/libgnss.so
+vendor/lib64/libloc_core.so
+
+# Graphics
+vendor/lib/hw/gralloc.holi.so
+vendor/lib/hw/hwcomposer.holi.so
+vendor/lib64/hw/gralloc.holi.so
+vendor/lib64/hw/hwcomposer.holi.so
+vendor/lib64/libgrallocutils.so
+
+# RIL
+vendor/lib64/libril-qc-hal-qmi.so
+vendor/lib64/libsec-ril.so
+vendor/lib64/libsec-ril-dsds.so
+vendor/lib64/libsecnativefeature.so
+
+# Sensors
+vendor/bin/hw/android.hardware.sensors@2.0-service.multihal
+vendor/lib64/hw/sensors.holi.so
+vendor/lib64/libsensorlistener.so
+
+# WiFi
+vendor/bin/hw/android.hardware.wifi@1.0-service
+vendor/lib64/libwifi-hal-qcom.so
+vendor/etc/wifi/WCNSS_qcom_cfg.ini
+```
+
+4. Commit: `Add proprietary-files.txt list`
+
+---
+
+**AVÍSAME:** "Archivos 5 y 6 creados" ✅
+
+---
+
+## 📊 **PROGRESO TOTAL:**
+```
+Device Tree: 90% completo
+Faltan: setup-makefiles.sh, fstab, sepolicy
+Tiempo: ~1 hora más
